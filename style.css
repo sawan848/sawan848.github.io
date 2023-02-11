@@ -197,6 +197,7 @@ nav ul li a:hover::after{
     width: 100%;
     border-radius: 12px;
     display: block;
+    object-fit: contain;
     transition: transform 0.5s;
 }
 .layer{
@@ -352,6 +353,13 @@ nav .fas{
     }
     .header-text h1{
         font-size: 30px;
+    }
+    #logo{
+        display: none;
+    }
+    .fa-bars{
+        color: yellow;
+        margin-left: 45vh;
     }
 
     nav .fas{
