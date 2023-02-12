@@ -25,7 +25,7 @@ nav{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    position: fixed;
+    /* position: fixed; */
     flex-wrap: wrap;
 }
 .logo{
@@ -343,7 +343,7 @@ nav .fas{
     display: none;
 }
 
-@media only screen and (max-width:412px){
+@media only screen and (max-width:600px){
     #header{
         background-image: url(images/pic1.jpg);
     }
