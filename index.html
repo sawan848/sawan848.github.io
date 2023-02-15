@@ -7,7 +7,14 @@
     <title>Sawan Kumar</title>
     <link rel="stylesheet" href="style.css" />
     <link rel="icon" href="images/logo.png" type="image/x-icon">
-    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.11/typed.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"/>
+
 </head>
 <body>
    <div id="header">
@@ -27,10 +34,12 @@
             <i class="fas fa-bars" onclick="openmenu()"></i>
         </nav>
         <div class="header-text">
-             <h1>Hi, I'm <span>Sawan</span> <br>
+             <p>Hi,my name is<h1>Sawan<br>Kumar</span> <br></p>
                 <!-- <span class="text first-text">Hi I'm a</span> -->
-                <p class="text sec-text">Software Developer</p>
-                  </div> </h1>
+                
+                <div class="text-3">And I'm a <span class="typing"></span></div>
+                <!-- <p class="text sec-text">Software Developer</p> -->
+                  </div> 
         </div>
     </div>
    </div>
@@ -43,7 +52,7 @@
             </div>
             <div class="about-col-2">
                 <h1 class="sub-title">About me</h1>
-                <p>I am passionate about software engineering, working in spring, Java, and the Java ecosystem. I am a big fan of Spring, love the Android ecosystem, and explore microservices in my spare time.</p>
+                <p>I'm a constant learner and very enthusiastic about working with new people and new technologies. I have good problem-solving skills and a great interest in app and backend development and the design of overall architecture. A language-agonistic individual with the ability to quickly grasp new languages or technologies in a short period of time I'm a good learner, disciplined, organized, and innovative. I have a positive attitude, am committed to my work, and love to code. Currently, I am exploring new technologies and frameworks. I believe in teamwork. I'm determined to give my best at everything that I'm assigned to.. </p>
                 <div class="tab-titles">
                     <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
                     <p class="tab-links" onclick="opentab('experience')">Experience</p>
@@ -83,8 +92,8 @@
             <div>
                 <i class="fas fa-code"></i>
                 <h2>App Design</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex tenetur aperiam porro?</p>
-                <a href="#">Learn more</a>
+                <p>I have designed lots of mobile applications for my internships and my resume. </p>
+                <a href="https://principled-stream-272.notion.site/App-Development-9c6fbad58895449187dd8ec73d83e551">Learn more</a>
             </div>
             <div>
                 <i class="fas fa-crop-alt"></i>
@@ -145,9 +154,10 @@
     <div class="container">
         <div class="row">
             <div class="contact-left">
-                <p class="sub-title">Contact Me</p>
-                <a href="mailto:ksawan802@gmail.com">✉️ ksawan@gmail.com</a><br>
-                <a href="tel:7004955044">📞 7004955044</a>
+                <h2 class="sub-title">Contact Me</h2>
+                <a href="mailto:ksawan802@gmail.com">
+                    <i class="fas fa-envelope"></i> ksawan@gmail.com</a><br>
+                <a href="tel:7004955044"><i class="fas fa-phone"></i> 7004955044</a>
                 <div class="social-icons">
                     <a href="https://www.facebook.com/sawan.kumar.56211497/"><i class="fab fa-facebook"></i></a>      
                     <a href="https://twitter.com/saone802"><i class="fab fa-twitter-square"></i></a>
@@ -170,7 +180,7 @@
 
     </div>
     <div class="copyright">
-        <p>Copyright &copy;  Sawan Kumar <i class="fas fa-heart"></i></p>
+        <span>Created By </span><a href="https://www.linkedin.com/in/sawan-kumar-5672b5185/">Sawan Kumar </a>| <span class="far fa-copyright"></span>  2023<i class="fas fa-heart"></i></p>
 
     </div>
    </div>
@@ -203,6 +213,12 @@
     }
    </script>
    <script>
+     var typed = new Typed(".typing", {
+        strings: ["Software Developer", "Traveller",  "Thinker"],
+        typeSpeed: 100,
+        backSpeed: 60,
+        loop: true
+    });
     const text=document.querySelector(".sec-text");
     const textLoad=()=>{
         setTimeout(() => {
@@ -211,7 +227,7 @@
         }, 0);
         
         setTimeout(() => {
-            text.textContent="A Photographer";
+            text.textContent="A ";
             text.style.color="#c678dd";
 
         }, 4000);
