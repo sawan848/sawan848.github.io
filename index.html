@@ -2,250 +2,908 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sawan Kumar</title>
-    <link rel="stylesheet" href="style.css" />
-    <link rel="icon" href="images/logo.png" type="image/x-icon">
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.11/typed.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"/>
+    <title>Sawan Kumar - Portfolio</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+html {
+    scroll-behavior: smooth;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
 
+
+a {
+    color: #fff;
+    text-decoration: none;
+}
+
+/* home section start */
+.navbar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    display: flex;
+    z-index: 100;
+    align-items: center;
+    justify-content: space-between;
+    padding: 25px 9%;
+    visibility: hidden;
+    opacity: 0;
+    animation: show-navbar 1.5s linear forwards;
+    animation-delay: 1.2s;
+}
+
+@keyframes show-navbar {
+    100% {
+        visibility: visible;
+        opacity: 1;
+    }
+}
+
+.navbar .logo {
+    font-size: 30px;
+    font-weight: 700%;
+}
+
+.navbar ul {
+    display: flex;
+}
+
+.navbar ul li {
+    list-style: none;
+    margin-left: 35px;
+}
+
+.navbar ul li a {
+    font-size: 20px;
+    font-weight: 500;
+    transition: .5s;
+}
+
+.navbar ul li a:hover,
+.navbar ul li a.active {
+    color: #7cf03d;
+}
+
+.home {
+    display: flex;
+    align-items: center;
+    height: 100vh;
+    gap: 50px;
+    padding: 60px 9% 0;
+    color: #fff;
+    visibility: hidden;
+    opacity: 0;
+    animation: show-navbar 1.5s linear forwards;
+    animation-delay: 1.6s;
+}
+.home-info h2 span::before {
+    content: attr(data-text);
+    position: absolute;
+    width: 0;
+    border-right: 2px solid #7cf03d;
+    color: #7cf03d;
+    overflow: hidden;
+    white-space: nowrap;
+    animation: fill-text 4s linear infinite;
+}
+
+@keyframes fill-text {
+    10%, 100% {
+        width: 0;
+    }
+    70%, 90% {
+        width: 100%;
+    }
+}
+.home-info h2 span {
+    position: relative;
+    display: inline-block;
+    color: transparent;
+    -webkit-text-stroke: .7px #7cf03d;
+    animation: display-text 16s linear infinite;
+    animation-delay: calc(-4s * var(--i));
+}
+
+
+
+@keyframes display-text {
+    25%, 100% {
+        display: none;
+    }
+}
+
+.section {
+    min-height: 100vh;
+    padding: 100px 9%;
+    display: none;
+}
+
+.section.active {
+    display: block;
+}
+
+#home.active {
+    display: flex;  /* Override for home section to maintain flex layout */
+}
+
+.home-info h1 {
+    font-size: 55px;
+}
+.home-info .btn-sci{
+    display: flex;
+    align-items: center;
+}
+.home-info h2 {
+    display: inline-block;
+    font-size: 32px;
+    margin-top: -10px;
+}
+
+
+
+
+
+.btn{
+    display: inline-block;
+    padding: 10px 30px;
+    background: #7cf03d;
+    border: 2px solid #7cf03d;
+    border-radius: 40px;
+    box-shadow: 0 0 10px #7cf03d;
+    font-size: 16px;
+    color:#1f242d;
+    font-weight: 600;
+    transition: .5s;
+}
+.btn:hover{
+    box-shadow: none;
+    color: #7cf03d;
+    background: transparent;
+}
+.btn-sci{
+    margin-top: 12px;
+
+}
+
+.home-info .btn-sci .sci{
+    margin-left: 20px;
+}
+
+.home-info .btn-sci .sci a:hover{
+    background: #7cf03d;
+    color: #1f242d;
+    box-shadow: 0 0 10px #7cf03d;
+}
+.home-info .btn-sci .sci a{
+    padding: 8px;
+    display: inline-flex;
+    border: 2px solid #7cf03d;
+    border-radius: 50%;
+    font-size: 20px;
+    color: #7cf03d;
+    margin: 0 8px;
+    transition: .5s;
+}
+
+.home-img .img-box {
+    position: relative;
+    width: 32vw;
+    height: 32vw;
+    border-radius: 50%;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.home-img .img-box::before,
+.home-img .img-box::after {
+    content: '';
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    transform: rotate(0deg);
+    animation: rotate-border 10s linear infinite;
+    background: conic-gradient(transparent, transparent, transparent, #7cf03d);
+}
+
+.home-img .img-box::after {
+    animation-delay: -5s;
+}
+
+@keyframes rotate-border {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.home-img .img-box .img-item {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border: .1px solid #1f242d;
+    background: #1f242d;
+    display: flex;
+    overflow: hidden;
+    z-index: 1;
+    justify-content: center;
+    border-radius: 50%;
+}
+.bar-animation {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    z-index: -1;
+}
+
+.bar-animation .bar {
+    width: 100%;
+    height: 100%;
+    background: #1f242d;
+    animation: show-bars .5s ease-in-out forwards;
+    transform: translateY(-100%);
+    animation-delay: calc(.1s * var(--i));
+}
+
+@keyframes show-bars {
+    100% {
+        transform: translateY(0%);
+    }
+}
+.home-img .img-box .img-item img {
+    position: absolute;
+    mix-blend-mode: lighten;
+    display: block;
+    width: 85%;
+    object-fit: cover;
+}
+/* home  section end */
+/* timeline section start */
+.timeline {
+    background: #1f242d;
+    color: #ededed;
+}
+.certification {
+    background: #1f242d;
+    color: #ededed;
+}
+
+.timeline .timeline-row{
+display: flex;
+column-gap: 64px;
+
+flex-wrap: wrap;
+}
+.timeline-row .timeline-column{
+    flex: 1 1 320px;
+    
+
+}
+
+.timeline-column .title{
+    position: relative;
+    display: inline-block;
+    font-size: 28px;
+    margin: 32px 0 16px 30px;
+
+
+}
+
+.animate{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 105%;
+    height: 100%;
+    background: #1f242d;
+    animation:  show-right 1s ease forwards;
+    animation-delay: calc(.5s *var(--i));
+}
+@keyframes show-right{
+    100%{
+        width: 0;
+    }
+}
+
+.timeline-column .timeline-box{
+    border-left: 2px solid #0ef;
+    position: relative;
+}
+
+.timeline-box .timeline-content::before{
+    content: '';
+    top: 0;
+    left: -10.5px;
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: #0ef;
+    border-radius: 50%;
+
+}
+.timeline-box .timeline-content{
+    position: relative;
+    padding-left: 27px;
+
+}
+
+.timeline-content .content .year i{
+    margin-right: 8px;
+}
+.timeline-content .content .year{
+    font-size: 16px;
+    color: #0ef;
+}
+
+.timeline-content .content h3{
+    font-size: 19px;
+    margin: 8px 0;
+}
+.timeline-content .content p{
+    font-size: 16px;
+}
+.timeline-content .content{
+    padding: 24px;
+    border: 2px solid #0ef;
+    border-radius: 8px;
+    margin-bottom: 32px;
+}
+.bar-animation{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    z-index: -1;
+}
+
+.bar-animation .bar{
+    width: 100%;
+    height: 100%;
+    background: #1f242d;
+    animation: show-bars .5s ease-in-out forwards;
+    transform: translateY(-100%);
+    animation-delay: calc(.1s * var(--i));
+    
+}
+
+
+
+
+@keyframes show-bars{
+    100%{
+        transform: translateY(0%);
+    }
+}
+.contact {
+    background: #1f242d;
+    color: #ededed;
+    text-align: center; /* Center align the main title */
+}
+
+.section-title {
+    font-size: 36px;
+    margin-bottom: 40px;
+    color: #0ef;
+}
+
+.contact-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    text-align: left; /* Left align the content inside */
+}
+
+.contact-info, .contact-form {
+    flex: 1 1 300px;
+    margin: 20px;
+}
+
+.contact-subtitle {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #0ef;
+}
+
+.contact-info p {
+    margin-bottom: 15px;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.info-item i {
+    font-size: 20px;
+    color: #0ef;
+    margin-right: 15px;
+}
+
+.contact-form input, .contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    background: #2e3846;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+}
+
+.contact-form textarea {
+    height: 150px;
+    resize: vertical;
+}
+
+.contact-form .btn {
+    background: #0ef;
+    color: #1f242d;
+    border: none;
+    cursor: pointer;
+    padding: 10px 20px;
+}
+
+.contact-form .btn:hover {
+    background: #00c8ff;
+}
+
+.service {
+    background-color: #2e3846;
+    padding: 50px 0;
+}
+
+.section-title {
+    font-size: 36px;
+    text-align: center;
+    margin-bottom: 40px;
+    color: #0ef;
+}
+
+.services-list {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.service-item {
+    flex-basis: calc(33.333% - 40px);
+    background: #262626;
+    padding: 40px;
+    font-size: 13px;
+    font-weight: 300;
+    border-radius: 10px;
+    transition: background 0.5s, transform 0.5s;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+}
+
+.service-item i {
+    font-size: 50px;
+    margin-bottom: 30px;
+    color: #0ef;
+}
+
+.service-item h3 {
+    font-size: 24px;
+    font-weight: 500;
+    margin-bottom: 15px;
+    color: #fff;
+}
+
+.service-item p {
+    color: #ededed;
+    margin-bottom: 20px;
+}
+
+.learn-more {
+    color: #0ef;
+    font-size: 14px;
+    text-decoration: none;
+    display: inline-block;
+    transition: transform 0.5s;
+}
+
+.learn-more:hover {
+    transform: translateY(-5px);
+}
+
+.service-item:hover {
+    background: #0ef;
+    transform: translateY(-10px);
+}
+
+.service-item:hover i,
+.service-item:hover h3,
+.service-item:hover p,
+.service-item:hover .learn-more {
+    color: #1f242d;
+}
+
+@media only screen and (max-width: 768px) {
+    .service-item {
+        flex-basis: 100%;
+    }
+}
+.portfolio {
+    padding: 50px 0;
+    background-color: #1f242d;
+}
+
+.work-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-gap: 40px;
+    margin-top: 50px;
+}
+
+.work {
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+}
+
+.work img {
+    width: 100%;
+    border-radius: 10px;
+    display: block;
+    transition: transform 0.5s;
+}
+
+.layer {
+    width: 100%;
+    height: 0;
+    background: linear-gradient(rgba(0,0,0,0.6), #0ef);
+    border-radius: 10px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 40px;
+    text-align: center;
+    font-size: 14px;
+    transition: height 0.5s;
+}
+
+.layer h3 {
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+.layer a {
+    margin-top: 20px;
+    color: #0ef;
+    text-decoration: none;
+    font-size: 18px;
+    line-height: 60px;
+    background: #fff;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    text-align: center;
+}
+
+.work:hover img {
+    transform: scale(1.1);
+}
+
+.work:hover .layer {
+    height: 100%;
+}
+
+.info-item {
+    display: flex;
+    align-items: center; /* Align items vertically centered */
+    margin-bottom: 10px; /* Space between items */
+}
+
+.info-item i {
+    margin-right: 10px; /* Space between icon and text */
+    font-size: 20px; /* Adjust icon size if needed */
+}
+
+.info-item p {
+    margin: 0; /* Remove default margin from paragraph */
+}
+
+.info-item a {
+    text-decoration: none; /* Remove underline from links */
+    color: inherit; /* Inherit color from parent */
+}
+
+.info-item a:hover {
+    text-decoration: underline; /* Underline on hover for better UX */
+}
+
+    </style>
 </head>
 <body>
-   <div id="header">
-    <div class="container">
+  
+
+    <header class="navbar">
+        <a href="#" class="logo">Sawan.</a>
         <nav>
-            <!-- <img src="images/logo.png" class="logo"> -->
-            <h1 id="logo">Sawan</h1>
-            <ul id="sidemenu">
-                <li><a href="#header">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#portfolio">Portfolio</a></li>
-                <li><a href="#">Blog</a></li>
-                <li><a href="#contact">Contact</a></li>
-                <i class="fas fa-times" onclick="closemenu()"></i>
-            </ul>
-            <i class="fas fa-bars" onclick="openmenu()"></i>
-        </nav>
-        <div class="header-text">
-             <p>Hi,my name is<h1>Sawan<br>Kumar</span> <br></p>
-                <!-- <span class="text first-text">Hi I'm a</span> -->
-                
-                <div class="text-3">And I'm a <span class="typing"></span></div>
-                <!-- <p class="text sec-text">Software Developer</p> -->
-                  </div> 
-        </div>
-    </div>
-   </div>
-   <!-- about -->
-   <div id="about">
-    <div class="container">
-        <div class="row">
-            <div class="about-col-1">
-                <img src="images/sa-one.jpg">
-            </div>
-            <div class="about-col-2">
-                <h1 class="sub-title">About me</h1>
-                <p>I'm a constant learner and very enthusiastic about working with new people and new technologies. I have good problem-solving skills and a great interest in app and backend development and the design of overall architecture. A language-agonistic individual with the ability to quickly grasp new languages or technologies in a short period of time I'm a good learner, disciplined, organized, and innovative. I have a positive attitude, am committed to my work, and love to code. Currently, I am exploring new technologies and frameworks. I believe in teamwork. I'm determined to give my best at everything that I'm assigned to.. </p>
-                <div class="tab-titles">
-                    <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
-                    <p class="tab-links" onclick="opentab('experience')">Experience</p>
-                    <p class="tab-links" onclick="opentab('education')">Education</p>
-                </div>
-                <div class="tab-contents active-tab" id="skills">
-                    <ul>
-                        <li><span>App Development</span><br>Building Android/iOS apps</li>
-                        <li><span>Web Development</span><br>Web App Development</li>
-                        <li><span>UI?UX</span><br>Designing Web/App interfaes</li>
-                    </ul>
-                </div>
-                <div class="tab-contents" id="experience">
-                    <ul>
-                        <li><span>Feb-2022 to Apr-2022</span><br>Machine Learning Intern</li>
-                        <li><span>Dec-2018 to Jan-2019</span><br>Android Developer Intern</li>
-                    </ul>
-                </div>
-                <div class="tab-contents" id="education">
-                    <ul>
-                        <li><span>2019 - 2022</span><br>Master in Computer Application</li>
-                        <li><span>2016 - 2019</span><br>Bachelor of Science in Information Technology</li>
-                        <li><span>2014-2016</span><br>Intermediate</li>
-                        <li><span>2012</span><br>Matriculation</li>
-                    </ul>
-                </div>
-               
-            </div>
-        </div>
-    </div>
-   </div>
-   <!-- services -->
-   <div id="services">
-    <div class="container">
-        <h1 class="sub-title">My Services</h1>
-        <div class="services-list">
-            <div>
-                <i class="fas fa-code"></i>
-                <h2>App Design</h2>
-                <p>I have designed lots of mobile applications for my internships and my resume. </p>
-                <a href="https://principled-stream-272.notion.site/App-Development-9c6fbad58895449187dd8ec73d83e551">Learn more</a>
-            </div>
-            <div>
-                <i class="fas fa-crop-alt"></i>
-                <h2>Web Design</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex tenetur aperiam porro?</p>
-                <a href="#">Learn more</a>
-            </div>
-            <div>
-                <i class="fab fa-app-store"></i>
-                <h2>Machine Learning</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex tenetur aperiam porro?</p>
-                <a href="#">Learn more</a>
-            </div>
-
-        </div>
-
-    </div>
-   </div>
-   <div id="portfolio">
-    <div class="container">
-         <h1 class="sub-title">My Work</h1>
-         <div class="work-list">
-            <div class="work">
-
-                <img src="images/quiz.jpeg">
-                <div class="layer">
-                    <h3>Quiz App</h3>
-                    <p>The app connets you to talented people around the world Download it from play store</p>
-                    <a href="#"><i class="fas fa-external-link-alt"></i></a>
-                </div>
-            </div>
-            <div class="work">
-
-                <img src="images/healthcare.png">
-                <div class="layer">
-                    <h3>Healthcare App</h3>
-                    <p>The app connets you to talented people around the world Download it from play store</p>
-                    <a href="#"><i class="fas fa-external-link-alt"></i></a>
-                </div>
-            </div>
-            <div class="work">
-
-                <img src="images/work-3.png">
-                <div class="layer">
-                    <h3>Online Shopping App </h3>
-                    <p>The app connets you to talented people around the world Download it from play store</p>
-                    <a href="#"><i class="fas fa-external-link-alt"></i></a>
-                </div>
-            </div>
-
-         </div>
-         <a href="#" class="btn">See more</a>
-
-    </div>
-   </div>
-   <!-- contact -->
-   <div id="contact">
-    <div class="container">
-        <div class="row">
-            <div class="contact-left">
-                <h2 class="sub-title">Contact Me</h2>
-                <a href="mailto:ksawan802@gmail.com">
-                    <i class="fas fa-envelope"></i> ksawan@gmail.com</a><br>
-                <a href="tel:7004955044"><i class="fas fa-phone"></i> 7004955044</a>
-                <div class="social-icons">
-                    <a href="https://www.facebook.com/sawan.kumar.56211497/"><i class="fab fa-facebook"></i></a>      
-                    <a href="https://twitter.com/saone802"><i class="fab fa-twitter-square"></i></a>
-                    <a href="https://github.com/sawan848"><i class="fab fa-github"></i></a>
-                    <a href="https://www.instagram.com/saone802/"><i class="fab fa-instagram"></i></a>
-                    <a href="https://www.linkedin.com/in/sawan-kumar-5672b5185/"><i class="fab fa-linkedin"></i></i></a>       
-                   </div>
-                   <a href="images/Sawan_Kumar_MCA_CV.pdf" download class="btn btn2">Download CV</a>
-            </div>
-            <div class="contact-right">
-                <form>
-                    <input type="text" name="Name" placeholder="Your name" required>
-                    <input type="email" name="Email" placeholder="Your Email" required>
-                    <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
-                    <button type="submit" class="btn btn2">Submit</button>
-
-                </form>
-            </div>
-        </div>
-
-    </div>
-    <div class="copyright">
-        <span>Created By </span><a href="https://www.linkedin.com/in/sawan-kumar-5672b5185/">Sawan Kumar </a>| <span class="far fa-copyright"></span>  2023<i class="fas fa-heart"></i></p>
-
-    </div>
-   </div>
-   <script>
-        var tablinsks=document.getElementsByClassName('tab-links');
-        var tabcontents=document.getElementsByClassName('tab-contents');
-
-        function opentab(tabname) {
-            for(tablink of tablinsks){
-                tablink.classList.remove('active-link');
-            }
-            for(tabcontent of tabcontents){
-                tabcontent.classList.remove('active-tab');
-            }
-            event.currentTarget.classList.add("active-link");
-            document.getElementById(tabname).classList.add('active-tab')
-        }
-
-   </script>
-
-   <script>
-       var sidemenu=document.getElementById('sidemenu');
-        function openmenu() {
-         sidemenu.style.right='0';   
          
-        }
-        function closemenu() {
-        sidemenu.style.right='-200px';   
-        
-    }
-   </script>
-   <script>
-     var typed = new Typed(".typing", {
-        strings: ["Software Developer", "Traveller",  "Thinker"],
-        typeSpeed: 100,
-        backSpeed: 60,
-        loop: true
-    });
-    const text=document.querySelector(".sec-text");
-    const textLoad=()=>{
-        setTimeout(() => {
-            text.textContent="A Developer";
-            text.style.color="#a9b0bd";
-        }, 0);
-        
-        setTimeout(() => {
-            text.textContent="A ";
-            text.style.color="#c678dd";
+            <ul>
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#timeline" class="nav-link">About</a></li>
+                <li><a href="#certification" class="nav-link">certification</a></li>
+                <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
+                <li><a href="#service" class="nav-link">Service</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+              
+            </ul>
+         
+        </nav>
+    </header>
 
-        }, 4000);
-        setTimeout(() => {
-            text.textContent="A Thinker";
-            text.style.color="#c678dd";
+    <div class="bar-animation">
+        <div class="bar" style="--i:6;"></div>
+        <div class="bar" style="--i:5;"></div>
+        <div class="bar" style="--i:4;"></div>
+        <div class="bar" style="--i:3;"></div>
+        <div class="bar" style="--i:2;"></div>
+        <div class="bar" style="--i:1;"></div>
+    </div>
 
-        }, 6000);
-        setTimeout(() => {
-            text.textContent="A Traveller";
-            text.style.color="#fa8231";
+    <section id="home" class="section home active">
+        <div class="home-info">
+            <h1>Sawan Kumar</h1>
+            <h2>I'm a 
+                <span style="--i:4;" data-text="Programmer">Programmer</span>
+                <span style="--i:2;" data-text="Backend Developer">Backend Developer</span>
+                <span style="--i:3;" data-text="Automation Test Engineer">Automation Test Engineer</span>
+                <span style="--i:1;" data-text="Tech Enthusiast">Tech Enthusiast</span>
+            </h2>
+            <p>Motivated programmer with a strong background in the BFS industry, excelling in deadline-driven environments. Highly skilled in API testing, backend development, and cloud services, with extensive training in Java Rest Assured, Spring Boot, and Cucumber frameworks. Proficient in working with cloud technologies like AWS and continuously expanding knowledge of Docker, Kubernetes, and Jenkins.</p>
+             <div class="btn-sci">
+                <a href="images/Sawan_Kumar_MCA_Spring_BackendDeveloper.pdf" download class="btn">Download CV</a>
+                <div class="sci">
+                    <a href="https://www.linkedin.com/in/sawan-kumar-5672b5185/"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://github.com/sawan848"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="home-img">
+            <div class="img-box">
+                <div class="img-item">
+                    <img src="./images/pic201.jpg" alt="Profile Image">
+                </div>
+            </div>
+        </div>
+    </section>
 
-        }, 8000);
+    <section id="timeline" class="section timeline">
+      <div class="timeline-row">
+    <div class="timeline-column">
+        <h2 class="title">Education<span class="animate" style="--i:1;"></span></h2>
+        <div class="timeline-box">
+            <div class="timeline-content">
+                <div class="content">
+                    <div class="year">2019-2022</div>
+                    <h3>MCA</h3>
+                    <p>Dr. Shyama Prasad Mukherjee University | CGPA: 7.9</p>
+                </div>
+            </div>
+            <div class="timeline-content">
+                <div class="content">
+                    <div class="year">2016-2019</div>
+                    <h3>B.Sc (IT)</h3>
+                    <p>Ranchi University, Doranda College | CGPA: 7.9</p>
+                </div>
+            </div>
+            <span class="animate" style="--i:2;"></span>
+        </div>
+    </div>
+    <div class="timeline-column">
+        <h2 class="title">Experience<span class="animate" style="--i:4;"></span></h2>
+        <div class="timeline-box">
+            <div class="timeline-content">
+                <div class="content">
+                    <div class="year">Mar 2023 - Present</div>
+                    <h3>Programmer | Cognizant</h3>
+                    <p>
+                        Currently working in the Global Banking Services division of US Bank, focusing on Online Banking, Online Trading, and more. 
+                        Proficient in API Testing using Java Rest Assured and Cucumber, automation test development, and collaborating with cross-functional teams.
+                    </p>
+                </div>
+            </div>
+            <span class="animate" style="--i:5;"></span>
+        </div>
+    </div>
+</div>
 
-    }
-    textLoad();
-    setInterval(textLoad,12000);
+</div>
+    </section>
+    <section id="certification" class="section certification">
+        <div class="timeline-column">
+            <h2 class="title">Certifications<span class="animate" style="--i:6;"></span></h2>
+            <div class="timeline-box">
+                <div class="timeline-content">
+                    <div class="content">
+                        <div class="year">2023</div>
+                        <h3>Java Certification</h3>
+                        <p>Oracle | Certified Java Programmer</p>
+                    </div>
+                </div>
+                <div class="timeline-content">
+                    <div class="content">
+                        <div class="year">2022</div>
+                        <h3>API Testing Certification</h3>
+                        <p>Udemy | Completed a course on API Testing with Rest Assured and Cucumber</p>
+                    </div>
+                </div>
+                <div class="timeline-content">
+                    <div class="content">
+                        <div class="year">2021</div>
+                        <h3>Data Science Certification</h3>
+                        <p>Coursera | Introduction to Data Science</p>
+                    </div>
+                </div>
+                <span class="animate" style="--i:7;"></span>
+            </div>
+        </div>
+    </section>
 
-   </script>
+    <section id="portfolio" class="section portfolio">
+        <div class="container">
+            <h2 class="section-title">My Work</h2>
+            <div class="work-list">
+                <div class="work">
+                    <img src="images/quiz.jpeg" alt="Quiz App">
+                    <div class="layer">
+                        <h3>Quiz App</h3>
+                        <p>Designed and implemented a robust CRUD operations project using Spring Boot Microservice. Integrated form validation and error handling, ensuring data integrity.</p>
+                        <a href="#" class="btn"><i class="fas fa-external-link-alt"></i> View Project</a>
+                    </div>
+                </div>
+                <div class="work">
+                    <img src="images/healthcare.png" alt="Healthcare App">
+                    <div class="layer">
+                        <h3>Healthcare App</h3>
+                        <p>Developed an Android app for hospital management, allowing users to make doctor appointments and manage pharmacy supplies.</p>
+                        <a href="#" class="btn"><i class="fas fa-external-link-alt"></i> View Project</a>
+                    </div>
+                </div>
+                <div class="work">
+                    <img src="images/work-3.png" alt="Online Shopping App">
+                    <div class="layer">
+                        <h3>Online Shopping App</h3>
+                        <p>A feature-rich e-commerce application that allows users to browse products, add to cart, and make purchases.</p>
+                        <a href="#" class="btn"><i class="fas fa-external-link-alt"></i> View Project</a>
+                    </div>
+                </div>
+            </div>
+            <a href="#" class="btn">See more</a>
+        </div>
+    </section>
+
+    <section id="service" class="section service">
+        <div class="container">
+            <h2 class="section-title">My Services</h2>
+            <div class="services-list">
+                <div class="service-item">
+                    <i class="fas fa-code"></i>
+                    <h3>App Design</h3>
+                    <p>I have designed lots of mobile applications for my internships and my resume.</p>
+                    <a href="https://principled-stream-272.notion.site/App-Development-9c6fbad58895449187dd8ec73d83e551" class="learn-more">Learn more</a>
+                </div>
+                <div class="service-item">
+                    <i class="fas fa-crop-alt"></i>
+                    <h3>Web Design</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex tenetur aperiam porro?</p>
+                    <a href="#" class="learn-more">Learn more</a>
+                </div>
+                <div class="service-item">
+                    <i class="fab fa-app-store"></i>
+                    <h3>Machine Learning</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex tenetur aperiam porro?</p>
+                    <a href="#" class="learn-more">Learn more</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section contact">
+        <h2 class="section-title">Contact Me</h2>
+    <div class="contact-content">
+        <div class="contact-info">
+            <h3 class="contact-subtitle">Get in Touch</h3>
+            <p>Feel free to reach out to me for any inquiries or opportunities.</p>
+            <div class="info-item">
+                <i class="fas fa-envelope"></i>
+                <p><a href="mailto:ksawan@gmail.com"> ksawan@gmail.com</a></p>
+            </div>
+            <div class="info-item">
+                <i class="fas fa-phone"></i>
+                <p><a href="tel:+917004955044">+917004955044</a></p>
+            </div>
+            <div class="info-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <p>New Town, Kolkata, India</p>
+            </div>
+        </div>
+        <form class="contact-form">
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <input type="text" placeholder="Subject" required>
+            <textarea placeholder="Your Message" required></textarea>
+            <button type="submit" class="btn">Send Message</button>
+        </form>
+    </div>
+    </section>
+    <script>
+        var sidemenu = document.getElementById('sidemenu');
+
+function openmenu() {
+    sidemenu.classList.add('open'); // Add 'open' class to slide in
+}
+
+function closemenu() {
+    sidemenu.classList.remove('open'); // Remove 'open' class to slide out
+}
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get all nav links
+            const navLinks = document.querySelectorAll('.nav-link');
+            const sections = document.querySelectorAll('.section');
+
+
+            // Function to change active tab
+            function changeTab(e) {
+                e.preventDefault();
+                
+                // Remove active class from all links and sections
+                navLinks.forEach(link => link.classList.remove('active'));
+                sections.forEach(section => section.classList.remove('active'));
+                
+                // Add active class to clicked link
+                e.target.classList.add('active');
+                
+                // Add active class to corresponding section
+                const targetSection = document.querySelector(e.target.getAttribute('href'));
+                targetSection.classList.add('active');
+
+            
+            }
+
+            // Add click event listener to all nav links
+            navLinks.forEach(link => {
+                link.addEventListener('click', changeTab);
+            });
+
+            // Handle initial active state based on URL hash
+            function handleInitialState() {
+                const hash = window.location.hash || '#home';
+                const activeLink = document.querySelector(`a[href="${hash}"]`);
+                const activeSection = document.querySelector(hash);
+                
+                navLinks.forEach(link => link.classList.remove('active'));
+                sections.forEach(section => section.classList.remove('active'));
+                
+                if (activeLink && activeSection) {
+                    activeLink.classList.add('active');
+                    activeSection.classList.add('active');
+                }
+            }
+
+            // Handle initial state and hash changes
+            handleInitialState();
+            window.addEventListener('hashchange', handleInitialState);
+        });
+    </script>
 </body>
 </html>
