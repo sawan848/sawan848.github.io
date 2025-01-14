@@ -8,6 +8,7 @@ html {
     padding: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
+    background: #1f242d;
 }
 
 
@@ -747,9 +748,7 @@ flex-wrap: wrap;
         }
 
         @media (max-width: 768px) {
-            .btn-sci{
-                background: #1f242d;
-            }
+          
             .home h2{
                 font-size: 20px;
             }
