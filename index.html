@@ -5,637 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sawan Kumar - Portfolio</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <style>
-        
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
-html {
-    scroll-behavior: smooth;
-}
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-}
+    <link rel="stylesheet" href="style.css">
 
-
-a {
-    color: #fff;
-    text-decoration: none;
-}
-
-/* home section start */
-.navbar {
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 100%;
-    display: flex;
-    z-index: 100;
-    align-items: center;
-    justify-content: space-between;
-    padding: 25px 9%;
-    visibility: hidden;
-    opacity: 0;
-    animation: show-navbar 1.5s linear forwards;
-    animation-delay: 1.2s;
-}
-
-@keyframes show-navbar {
-    100% {
-        visibility: visible;
-        opacity: 1;
-    }
-}
-
-.navbar .logo {
-    font-size: 30px;
-    font-weight: 700%;
-}
-
-.navbar ul {
-    display: flex;
-}
-
-.navbar ul li {
-    list-style: none;
-    margin-left: 35px;
-}
-
-.navbar ul li a {
-    font-size: 20px;
-    font-weight: 500;
-    transition: .5s;
-}
-
-.navbar ul li a:hover,
-.navbar ul li a.active {
-    color: #7cf03d;
-}
-
-.home {
-    display: flex;
-    align-items: center;
-    height: 100vh;
-    gap: 50px;
-    padding: 60px 9% 0;
-    color: #fff;
-    visibility: hidden;
-    opacity: 0;
-    animation: show-navbar 1.5s linear forwards;
-    animation-delay: 1.6s;
-}
-.home-info h2 span::before {
-    content: attr(data-text);
-    position: absolute;
-    width: 0;
-    border-right: 2px solid #7cf03d;
-    color: #7cf03d;
-    overflow: hidden;
-    white-space: nowrap;
-    animation: fill-text 4s linear infinite;
-}
-
-@keyframes fill-text {
-    10%, 100% {
-        width: 0;
-    }
-    70%, 90% {
-        width: 100%;
-    }
-}
-.home-info h2 span {
-    position: relative;
-    display: inline-block;
-    color: transparent;
-    -webkit-text-stroke: .7px #7cf03d;
-    animation: display-text 16s linear infinite;
-    animation-delay: calc(-4s * var(--i));
-}
-
-
-
-@keyframes display-text {
-    25%, 100% {
-        display: none;
-    }
-}
-
-.section {
-    min-height: 100vh;
-    padding: 100px 9%;
-    display: none;
-}
-
-.section.active {
-    display: block;
-}
-
-#home.active {
-    display: flex;  /* Override for home section to maintain flex layout */
-}
-
-.home-info h1 {
-    font-size: 55px;
-}
-.home-info .btn-sci{
-    display: flex;
-    align-items: center;
-}
-.home-info h2 {
-    display: inline-block;
-    font-size: 32px;
-    margin-top: -10px;
-}
-
-
-
-
-
-.btn{
-    display: inline-block;
-    padding: 10px 30px;
-    background: #7cf03d;
-    border: 2px solid #7cf03d;
-    border-radius: 40px;
-    box-shadow: 0 0 10px #7cf03d;
-    font-size: 16px;
-    color:#1f242d;
-    font-weight: 600;
-    transition: .5s;
-}
-.btn:hover{
-    box-shadow: none;
-    color: #7cf03d;
-    background: transparent;
-}
-.btn-sci{
-    margin-top: 12px;
-
-}
-
-.home-info .btn-sci .sci{
-    margin-left: 20px;
-}
-
-.home-info .btn-sci .sci a:hover{
-    background: #7cf03d;
-    color: #1f242d;
-    box-shadow: 0 0 10px #7cf03d;
-}
-.home-info .btn-sci .sci a{
-    padding: 8px;
-    display: inline-flex;
-    border: 2px solid #7cf03d;
-    border-radius: 50%;
-    font-size: 20px;
-    color: #7cf03d;
-    margin: 0 8px;
-    transition: .5s;
-}
-
-.home-img .img-box {
-    position: relative;
-    width: 32vw;
-    height: 32vw;
-    border-radius: 50%;
-    padding: 5px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-}
-
-.home-img .img-box::before,
-.home-img .img-box::after {
-    content: '';
-    position: absolute;
-    width: 500px;
-    height: 500px;
-    transform: rotate(0deg);
-    animation: rotate-border 10s linear infinite;
-    background: conic-gradient(transparent, transparent, transparent, #7cf03d);
-}
-
-.home-img .img-box::after {
-    animation-delay: -5s;
-}
-
-@keyframes rotate-border {
-    100% {
-        transform: rotate(360deg);
-    }
-}
-
-.home-img .img-box .img-item {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    border: .1px solid #1f242d;
-    background: #1f242d;
-    display: flex;
-    overflow: hidden;
-    z-index: 1;
-    justify-content: center;
-    border-radius: 50%;
-}
-.bar-animation {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    z-index: -1;
-}
-
-.bar-animation .bar {
-    width: 100%;
-    height: 100%;
-    background: #1f242d;
-    animation: show-bars .5s ease-in-out forwards;
-    transform: translateY(-100%);
-    animation-delay: calc(.1s * var(--i));
-}
-
-@keyframes show-bars {
-    100% {
-        transform: translateY(0%);
-    }
-}
-.home-img .img-box .img-item img {
-    position: absolute;
-    mix-blend-mode: lighten;
-    display: block;
-    width: 85%;
-    object-fit: cover;
-}
-/* home  section end */
-/* timeline section start */
-.timeline {
-    background: #1f242d;
-    color: #ededed;
-}
-.certification {
-    background: #1f242d;
-    color: #ededed;
-}
-
-.timeline .timeline-row{
-display: flex;
-column-gap: 64px;
-
-flex-wrap: wrap;
-}
-.timeline-row .timeline-column{
-    flex: 1 1 320px;
-    
-
-}
-
-.timeline-column .title{
-    position: relative;
-    display: inline-block;
-    font-size: 28px;
-    margin: 32px 0 16px 30px;
-
-
-}
-
-.animate{
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 105%;
-    height: 100%;
-    background: #1f242d;
-    animation:  show-right 1s ease forwards;
-    animation-delay: calc(.5s *var(--i));
-}
-@keyframes show-right{
-    100%{
-        width: 0;
-    }
-}
-
-.timeline-column .timeline-box{
-    border-left: 2px solid #0ef;
-    position: relative;
-}
-
-.timeline-box .timeline-content::before{
-    content: '';
-    top: 0;
-    left: -10.5px;
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    background: #0ef;
-    border-radius: 50%;
-
-}
-.timeline-box .timeline-content{
-    position: relative;
-    padding-left: 27px;
-
-}
-
-.timeline-content .content .year i{
-    margin-right: 8px;
-}
-.timeline-content .content .year{
-    font-size: 16px;
-    color: #0ef;
-}
-
-.timeline-content .content h3{
-    font-size: 19px;
-    margin: 8px 0;
-}
-.timeline-content .content p{
-    font-size: 16px;
-}
-.timeline-content .content{
-    padding: 24px;
-    border: 2px solid #0ef;
-    border-radius: 8px;
-    margin-bottom: 32px;
-}
-.bar-animation{
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    z-index: -1;
-}
-
-.bar-animation .bar{
-    width: 100%;
-    height: 100%;
-    background: #1f242d;
-    animation: show-bars .5s ease-in-out forwards;
-    transform: translateY(-100%);
-    animation-delay: calc(.1s * var(--i));
-    
-}
-
-
-
-
-@keyframes show-bars{
-    100%{
-        transform: translateY(0%);
-    }
-}
-.contact {
-    background: #1f242d;
-    color: #ededed;
-    text-align: center; /* Center align the main title */
-}
-
-.section-title {
-    font-size: 36px;
-    margin-bottom: 40px;
-    color: #0ef;
-}
-
-.contact-content {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    text-align: left; /* Left align the content inside */
-}
-
-.contact-info, .contact-form {
-    flex: 1 1 300px;
-    margin: 20px;
-}
-
-.contact-subtitle {
-    font-size: 24px;
-    margin-bottom: 20px;
-    color: #0ef;
-}
-
-.contact-info p {
-    margin-bottom: 15px;
-}
-
-.info-item {
-    display: flex;
-    align-items: center;
-    margin-bottom: 15px;
-}
-
-.info-item i {
-    font-size: 20px;
-    color: #0ef;
-    margin-right: 15px;
-}
-
-.contact-form input, .contact-form textarea {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    background: #2e3846;
-    border: none;
-    border-radius: 5px;
-    color: #fff;
-}
-
-.contact-form textarea {
-    height: 150px;
-    resize: vertical;
-}
-
-.contact-form .btn {
-    background: #0ef;
-    color: #1f242d;
-    border: none;
-    cursor: pointer;
-    padding: 10px 20px;
-}
-
-.contact-form .btn:hover {
-    background: #00c8ff;
-}
-
-.service {
-    background-color: #2e3846;
-    padding: 50px 0;
-}
-
-.section-title {
-    font-size: 36px;
-    text-align: center;
-    margin-bottom: 40px;
-    color: #0ef;
-}
-
-.services-list {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-}
-
-.service-item {
-    flex-basis: calc(33.333% - 40px);
-    background: #262626;
-    padding: 40px;
-    font-size: 13px;
-    font-weight: 300;
-    border-radius: 10px;
-    transition: background 0.5s, transform 0.5s;
-    margin-bottom: 20px;
-    box-sizing: border-box;
-}
-
-.service-item i {
-    font-size: 50px;
-    margin-bottom: 30px;
-    color: #0ef;
-}
-
-.service-item h3 {
-    font-size: 24px;
-    font-weight: 500;
-    margin-bottom: 15px;
-    color: #fff;
-}
-
-.service-item p {
-    color: #ededed;
-    margin-bottom: 20px;
-}
-
-.learn-more {
-    color: #0ef;
-    font-size: 14px;
-    text-decoration: none;
-    display: inline-block;
-    transition: transform 0.5s;
-}
-
-.learn-more:hover {
-    transform: translateY(-5px);
-}
-
-.service-item:hover {
-    background: #0ef;
-    transform: translateY(-10px);
-}
-
-.service-item:hover i,
-.service-item:hover h3,
-.service-item:hover p,
-.service-item:hover .learn-more {
-    color: #1f242d;
-}
-
-@media only screen and (max-width: 768px) {
-    .service-item {
-        flex-basis: 100%;
-    }
-}
-.portfolio {
-    padding: 50px 0;
-    background-color: #1f242d;
-}
-
-.work-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    grid-gap: 40px;
-    margin-top: 50px;
-}
-
-.work {
-    border-radius: 10px;
-    position: relative;
-    overflow: hidden;
-}
-
-.work img {
-    width: 100%;
-    border-radius: 10px;
-    display: block;
-    transition: transform 0.5s;
-}
-
-.layer {
-    width: 100%;
-    height: 0;
-    background: linear-gradient(rgba(0,0,0,0.6), #0ef);
-    border-radius: 10px;
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    padding: 0 40px;
-    text-align: center;
-    font-size: 14px;
-    transition: height 0.5s;
-}
-
-.layer h3 {
-    font-weight: 500;
-    margin-bottom: 20px;
-}
-
-.layer a {
-    margin-top: 20px;
-    color: #0ef;
-    text-decoration: none;
-    font-size: 18px;
-    line-height: 60px;
-    background: #fff;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    text-align: center;
-}
-
-.work:hover img {
-    transform: scale(1.1);
-}
-
-.work:hover .layer {
-    height: 100%;
-}
-
-.info-item {
-    display: flex;
-    align-items: center; /* Align items vertically centered */
-    margin-bottom: 10px; /* Space between items */
-}
-
-.info-item i {
-    margin-right: 10px; /* Space between icon and text */
-    font-size: 20px; /* Adjust icon size if needed */
-}
-
-.info-item p {
-    margin: 0; /* Remove default margin from paragraph */
-}
-
-.info-item a {
-    text-decoration: none; /* Remove underline from links */
-    color: inherit; /* Inherit color from parent */
-}
-
-.info-item a:hover {
-    text-decoration: underline; /* Underline on hover for better UX */
-}
-
-    </style>
 </head>
 <body>
   
 
     <header class="navbar">
         <a href="#" class="logo">Sawan.</a>
+        <div class="menu-toggle" id="menu-toggle">
+            <i class="fas fa-bars"></i>
+        </div>
         <nav>
          
             <ul>
@@ -758,39 +138,90 @@ flex-wrap: wrap;
             </div>
         </div>
     </section>
-
+    
     <section id="portfolio" class="section portfolio">
         <div class="container">
             <h2 class="section-title">My Work</h2>
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="web">Web Developer</button>
+                <button class="filter-btn" data-filter="ml">Machine Learning</button>
+                <button class="filter-btn" data-filter="backend">Backend</button>
+            </div>
             <div class="work-list">
-                <div class="work">
-                    <img src="images/quiz.jpeg" alt="Quiz App">
+                <div class="work" data-category="backend">
+                    <span class="label">Quiz App</span>
+                    <img src="./assets/images/project-8.jpg"alt="Quiz App">
                     <div class="layer">
-                        <h3>Quiz App</h3>
+                        <h3 >Quiz App</h3>
                         <p>Designed and implemented a robust CRUD operations project using Spring Boot Microservice. Integrated form validation and error handling, ensuring data integrity.</p>
                         <a href="#" class="btn"><i class="fas fa-external-link-alt"></i> View Project</a>
                     </div>
+                    <span class="category">Backend</span>
                 </div>
-                <div class="work">
-                    <img src="images/healthcare.png" alt="Healthcare App">
+                <div class="work" data-category="web">
+                    <span class="label">Healthcare App</span>
+                    <img src="./assets/images/project-9.png" alt="Healthcare App">
                     <div class="layer">
                         <h3>Healthcare App</h3>
                         <p>Developed an Android app for hospital management, allowing users to make doctor appointments and manage pharmacy supplies.</p>
                         <a href="#" class="btn"><i class="fas fa-external-link-alt"></i> View Project</a>
                     </div>
+                    <span class="category">Web Developer</span>
                 </div>
-                <div class="work">
-                    <img src="images/work-3.png" alt="Online Shopping App">
+                <div class="work" data-category="web">
+                    <span class="label">Online Shopping App</span>
+                    <img src="./assets/images/project-2.png" alt="Online Shopping App">
                     <div class="layer">
                         <h3>Online Shopping App</h3>
                         <p>A feature-rich e-commerce application that allows users to browse products, add to cart, and make purchases.</p>
                         <a href="#" class="btn"><i class="fas fa-external-link-alt"></i> View Project</a>
                     </div>
+                    <span class="category">Web Developer</span>
+
                 </div>
+                <div class="work" data-category="ml">
+                    <span class="label">Machine Learning Project</span>
+
+                    <img src="./assets/images/project-1.jpg" alt="Machine Learning Project">
+                    <div class="layer">
+                        <h3>Machine Learning Project</h3>
+                        <p>Developed a machine learning model to predict housing prices using Python and scikit-learn.</p>
+                        <a href="#" class="btn"><i class="fas fa-external-link-alt"></i> View Project</a>
+                    </div>
+                    <span class="category">Machine Learning</span>
+
+                </div>
+                <div class="work" data-category="web">
+                    <span class="label">Online Shopping App</span>
+
+                    <img src="./assets/images/project-7.png" alt="Online Shopping App">
+                    <div class="layer">
+                        <h3>Online Shopping App</h3>
+                        <p>A feature-rich e-commerce application that allows users to browse products, add to cart, and make purchases.</p>
+                        <a href="#" class="btn"><i class="fas fa-external-link-alt"></i> View Project</a>
+                    </div>
+                    <span class="category">Web Developer</span>
+
+
+                </div>
+                <div class="work" data-category="ml">
+                    <span class="label">Machine Learning Project</span>
+                    <img src="./assets/images/project-6.png" alt="Machine Learning Project">
+                    <div class="layer">
+                        <h3>Machine Learning Project</h3>
+                        <p>Developed a machine learning model to predict housing prices using Python and scikit-learn.</p>
+                        <a href="#" class="btn"><i class="fas fa-external-link-alt"></i> View Project</a>
+                    </div>
+                    <span class="category">Machine Learning</span>
+                </div>
+              
+
             </div>
             <a href="#" class="btn">See more</a>
         </div>
     </section>
+  
 
     <section id="service" class="section service">
         <div class="container">
@@ -846,64 +277,8 @@ flex-wrap: wrap;
         </form>
     </div>
     </section>
+    <script src="script.js"></script>
     <script>
-        var sidemenu = document.getElementById('sidemenu');
-
-function openmenu() {
-    sidemenu.classList.add('open'); // Add 'open' class to slide in
-}
-
-function closemenu() {
-    sidemenu.classList.remove('open'); // Remove 'open' class to slide out
-}
-        document.addEventListener('DOMContentLoaded', function() {
-            // Get all nav links
-            const navLinks = document.querySelectorAll('.nav-link');
-            const sections = document.querySelectorAll('.section');
-
-
-            // Function to change active tab
-            function changeTab(e) {
-                e.preventDefault();
-                
-                // Remove active class from all links and sections
-                navLinks.forEach(link => link.classList.remove('active'));
-                sections.forEach(section => section.classList.remove('active'));
-                
-                // Add active class to clicked link
-                e.target.classList.add('active');
-                
-                // Add active class to corresponding section
-                const targetSection = document.querySelector(e.target.getAttribute('href'));
-                targetSection.classList.add('active');
-
-            
-            }
-
-            // Add click event listener to all nav links
-            navLinks.forEach(link => {
-                link.addEventListener('click', changeTab);
-            });
-
-            // Handle initial active state based on URL hash
-            function handleInitialState() {
-                const hash = window.location.hash || '#home';
-                const activeLink = document.querySelector(`a[href="${hash}"]`);
-                const activeSection = document.querySelector(hash);
-                
-                navLinks.forEach(link => link.classList.remove('active'));
-                sections.forEach(section => section.classList.remove('active'));
-                
-                if (activeLink && activeSection) {
-                    activeLink.classList.add('active');
-                    activeSection.classList.add('active');
-                }
-            }
-
-            // Handle initial state and hash changes
-            handleInitialState();
-            window.addEventListener('hashchange', handleInitialState);
-        });
     </script>
 </body>
 </html>
