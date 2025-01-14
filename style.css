@@ -452,7 +452,7 @@ flex-wrap: wrap;
 }
 
 .service {
-    background-color: #2e3846;
+ 
     padding: 50px 0;
 }
 
@@ -513,6 +513,7 @@ flex-wrap: wrap;
 
 .service-item:hover {
     background: #0ef;
+    color: #fff;
     transform: translateY(-10px);
 }
 
@@ -520,7 +521,9 @@ flex-wrap: wrap;
 .service-item:hover h3,
 .service-item:hover p,
 .service-item:hover .learn-more {
-    color: #1f242d;
+    /* color: #fff;
+    background-color: #000; */
+
 }
 
 @media only screen and (max-width: 768px) {
@@ -746,15 +749,26 @@ flex-wrap: wrap;
             bottom: 10px;
             right: 10px;
         }
-
+       
         @media (max-width: 768px) {
-           
+            #nav-menu {
+                display: none;
+            }
+            
+            #nav-menu.active {
+                display: block;
+            }
+           .home-info{
+            margin-top: 6rem;
+            
+           }
             .home h2{
                 font-size: 20px;
             }
             .menu-toggle {
                 display: flex;
             }
+            
             .navbar ul {
                 flex-direction: column;
                 width: 40%;

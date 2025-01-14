@@ -3,21 +3,32 @@
             const menuToggle = document.getElementById('menu-toggle');
             const navbarUl = document.querySelector('.navbar ul');
             // Get all nav links
-            const navLinks = document.querySelectorAll('.nav-link');
+            // const navLinks = document.querySelectorAll('.nav-link');
+            const navLinks = document.querySelectorAll('.navbar ul li a');
             const sections = document.querySelectorAll('.section');
-
+            const navMenu = document.getElementById('nav-menu');
             const filterButtons = document.querySelectorAll('.filter-btn');
             const works = document.querySelectorAll('.work');
 
             menuToggle.addEventListener('click', function() {
-                navbarUl.classList.toggle('open');
+                navMenu.classList.toggle('active');
             });
 
             navLinks.forEach(link => {
                 link.addEventListener('click', function() {
-                    navbarUl.classList.remove('open');
+                    navMenu.classList.remove('active');
                 });
             });
+            // menuToggle.addEventListener('click', function() {
+            //     navbarUl.classList.toggle('open');
+            // });
+
+            // navLinks.forEach(link => {
+            //     link.addEventListener('click', function() {
+            //         console.log('link ',link)
+            //         navbarUl.classList.remove('active');
+            //     });
+            // });
           
 
             // Handle initial active state based on URL hash
